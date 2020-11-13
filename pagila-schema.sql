@@ -600,12 +600,7 @@ CREATE TABLE public.customer (
     activebool boolean DEFAULT true NOT NULL,
     create_date date DEFAULT ('now'::text)::date NOT NULL,
     last_update timestamp without time zone DEFAULT now(),
-    active smallint GENERATED ALWAYS AS (
-CASE
-    WHEN (activebool IS TRUE) THEN 1
-    ELSE 0
-END) STORED
-);
+    active smallint);
 
 
 ALTER TABLE public.customer OWNER TO postgres;
